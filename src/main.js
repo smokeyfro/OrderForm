@@ -23,6 +23,9 @@ export default function (Vue, { router, head, isClient, appOptions  }) {
 		mutations: {
 		  push(state, item) {
 			state.items.push(item)
+		  },
+		  remove(state, item) {
+			state.items.slice(this.item)
 		  }
 		}
 	  })
