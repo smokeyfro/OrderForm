@@ -15,6 +15,9 @@
                         <button class="block px-2 py-0 bg-red-500 rounded-full white-black btn btn-sm btn-danger" @click.prevent="removeFromCart(index)">&times;</button>
                     </td>
                 </tr>
+                <tr v-if="shoppingCartItems != ''">
+                    <td class="text-center">No items in your cart</td>
+                </tr>
                 <!-- <tr>
                     <th></th>
                     <th>{{ cartTotal }}</th>

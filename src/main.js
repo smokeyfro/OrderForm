@@ -1,5 +1,6 @@
 import DefaultLayout from '~/layouts/Default.vue'
 import Vuex from 'vuex'
+import createPersistedState from "vuex-persistedstate";
 
 export default function (Vue, { router, head, isClient, appOptions  }) {
 
@@ -15,10 +16,10 @@ export default function (Vue, { router, head, isClient, appOptions  }) {
 	}
 
 	appOptions.store = new Vuex.Store({
+		plugins: [createPersistedState()],
 		state: {
 		  items: [],
 		},
-	
 		mutations: {
 		  push(state, item) {
 			state.items.push(item)
