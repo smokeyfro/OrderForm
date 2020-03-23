@@ -1,13 +1,13 @@
 <template>
-    <div class="w-full bg-gray-100 p-5 mb-5 block">
-        <h2 class="font-bold text-lg mb-3">{{ this.producer }}</h2>
-        <table class="w-full block">
-            <tbody class="w-full block">
-                <tr v-for="(item, i) in filteredProducts" :key="i" :value="item.node.id" class="w-full block odd:bg-white even:bg-gray-200">
+    <div class="block w-full p-5 mb-5 bg-gray-100">
+        <h2 class="mb-3 text-lg font-bold">{{ this.producer }}</h2>
+        <table class="block w-full">
+            <tbody class="block w-full">
+                <tr v-for="(item, i) in filteredProducts" :key="i" :value="item.node.id" class="block w-full odd:bg-white even:bg-gray-200">
                     <td width="400px">{{ item.node.title }}</td>
                     <td width="100px">R{{ item.node.price }}</td>
                     <td width="100px">{{ item.node.availability }} available</td>
-                    <td width="100px" align="right"><button class="text-sm bg-green-700 text-white rounded-md inline-block px-2 py-1 text-black" @click.prevent="addToCart(item)">Add</button></td>
+                    <td width="100px" align="right"><button class="inline-block px-2 py-1 text-sm text-black text-white bg-green-700 rounded-md" @click.prevent="addToShoppingCart(item)">Add</button></td>
                 </tr>
             </tbody>
         </table>
@@ -28,19 +28,8 @@ export default {
         }
     },
     methods: {
-        addToCart: function(item) {
-            this.cart.push(
-                {
-                    title: item.title, 
-                    price: item.price,
-                    quanity: item.quantity
-                }
-            );
-        }
-    },
-    data(){
-        return {
-            producerID: this.producer_id
+        addToShoppingCart(item) {
+            this.$store.commit('push', item)
         }
     }
 }
