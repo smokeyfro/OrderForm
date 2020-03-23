@@ -12,7 +12,7 @@
                      </td>
                     <td width="100px text-xl"><span class="text-2xl">Total: {{ qty * item.node.price }}</span></td>
                     <td class="w-10 text-right">
-                        <button class="block px-2 py-0 bg-red-500 rounded-full white-black btn btn-sm btn-danger" @click.prevent="addToShoppingCart(item)">&times;</button>
+                        <button class="block px-2 py-0 bg-red-500 rounded-full white-black btn btn-sm btn-danger" @click.prevent="removeItemFromCart(item)">&times;</button>
                     </td>
                 </tr>
                 <tr v-if="shoppingCartItems != ''">
@@ -72,8 +72,8 @@ export default {
             // we map the state declared in main.js
             return this.$store.state.items
         },
-        removeToShoppingCart(item) {
-            this.$store.commit('remove', item)
+        removeItemFromCart(item, index) {
+            this.$store.commit('remove', item, index)
         }
     }
 }

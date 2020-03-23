@@ -25,7 +25,10 @@ export default function (Vue, { router, head, isClient, appOptions  }) {
 			state.items.push(item)
 		  },
 		  remove(state, item) {
-			state.items.slice(this.item)
+			state.items.splice(item)
+		  },
+		  clear(state, item) {
+			state.items.splice(item)
 		  }
 		}
 	  })
