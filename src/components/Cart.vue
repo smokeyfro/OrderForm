@@ -75,7 +75,7 @@ export default {
 			state.items.splice(itemIndex, 1)
 		},
     },
-    computed:
+    computed: {
         shoppingCartItems() {
             return this.$store.state.all
         }

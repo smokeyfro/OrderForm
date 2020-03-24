@@ -66,6 +66,5 @@ export default new Vuex.Store({
 	strict: debug,
 	getters,
 	actions,
-    mutations,
-    plugins: [createPersistedState()],
+    mutations
 })
