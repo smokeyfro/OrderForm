@@ -70,9 +70,10 @@ export default {
         }
     },
     methods: {
-        removeItemFromCart(item) {
-            this.$store.commit('remove', item)
-        }
+        remove(state, item, index) {
+			let itemIndex = index
+			state.items.splice(itemIndex, 1)
+		},
     },
     computed:
     mapGetters({
