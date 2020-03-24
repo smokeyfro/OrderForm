@@ -5,17 +5,17 @@
         </div>
         <table class="block w-full">
             <tbody class="block w-full">
-                <tr v-for="(item, i) of shoppingCartItems" :key="i" class="block w-full p-3 odd:bg-white even:bg-gray-200">
-                    <td class="w-24"><input class="inline w-10 px-4 py-2 mr-1 text-sm text-center border rounded-md" value="1" v-bind="qty" /> of {{ item.node.availability }}</td>
-                    <td class="pl-3 pr-5" width="40%">{{ item.node.title }}<br><em>{{ item.node.producer }}</em></td>
-                    <td class="text-left">R200 Total <span class="block text-sm">({{ item.node.price }} per item)</span>
+                <tr v-for="(item, i) of products" :key="i" class="block w-full p-3 odd:bg-white even:bg-gray-200">
+                    <td class="w-24"><input class="inline w-10 px-4 py-2 mr-1 text-sm text-center border rounded-md" value="1" v-bind="quantity" /> of {{ item.node.availability }}</td>
+                    <td class="pl-3 pr-5" width="45%">{{ item.title }}<br><em>{{ item.producer }}</em></td>
+                    <td class="text-left" width="20%">R200 Total <span class="block text-sm">({{ item.price }} per item)</span>
                      </td>
-                    <td width="100px text-xl"><span class="text-2xl">Total: {{ qty * item.node.price }}</span></td>
+                    <td width="100px text-xl"><span class="text-2xl">Total: {{ qty * item.price }}</span></td>
                     <td class="w-10 text-right">
                         <button class="block px-2 py-0 bg-red-500 rounded-full white-black btn btn-sm btn-danger" @click.prevent="removeItemFromCart(item)">&times;</button>
                     </td>
                 </tr>
-                <tr v-if="shoppingCartItems != ''">
+                <tr v-if="products.length === ''">
                     <td class="text-center">No items in your cart</td>
                 </tr>
                 <!-- <tr>
@@ -47,6 +47,7 @@
             </label>
         </div>
         <div class="mb-5 summary">
+            <!-- Total:${{total}} -->
             <dl class="text-lg">
                 <dt class="float-left w-40 font-bold">Subtotal</dt>
                 <dd>R400</dd>
@@ -61,21 +62,23 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-    data() {
-        return {
-            qty: false
-        }
-    },
     computed: {
-        shoppingCartItems() {
-            // we map the state declared in main.js
-            return this.$store.state.items
-        },
-        removeItemFromCart(item, index) {
-            this.$store.commit('remove', item, index)
-        }
+    ...mapGetters({
+      products: 'cartProducts'
+    }),
+    total () {
+      return this.products.reduce((total, p) => {
+        return total + p.price * p.quantity
+      }, 0)
     }
+  },
+  methods: {
+  	checkout(){
+  		alert('Pay us $' + this.total)
+  	}
+  }
 }
 </script>
 
