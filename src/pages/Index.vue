@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 import ProductsByProducer from "~/components/ProductsByProducer.vue"
 import Cart from "~/components/Cart.vue"
@@ -56,7 +56,7 @@ export default {
         length: 'getNumberOfProducts'
     }),
   mounted() {
-    this.$store.commit('setItems', this.$page.products)
+    this.$store.commit('setItems', this.$page.products.edges)
   },
   methods:{
     handleToggleDrawer() {

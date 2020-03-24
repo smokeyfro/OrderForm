@@ -21,20 +21,15 @@ export default {
         'producer_id': String,
         'producer': String
     },
-    computed: mapGetters({
-        products: 'allProducts',
-        length: 'getNumberOfProducts'
-    }),
     computed: {
-		filteredProducts() {
+        ...mapGetters({
+            products: 'allProducts',
+            length: 'getNumberOfProducts'
+        }),
+        filteredProducts() {
 			return this.$static.products.edges.filter(edge => {
 				return edge.node.producer_id === this.producer_id;
 			});
-        }
-    },
-    methods: {
-        addToShoppingCart(item) {
-            this.$store.commit('push', item)
         }
     },
     methods: mapActions([
