@@ -34,7 +34,7 @@
 </template>
 
 <script>
-// import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 import ProductsByProducer from "~/components/ProductsByProducer.vue"
 import Cart from "~/components/Cart.vue"
@@ -50,6 +50,11 @@ export default {
 	// 	// 	return cart.reduce((accum, item) => accum + item.quantity, 0)
 	// 	// }
   // },
+  computed:
+    mapGetters({
+        products: 'allProducts',
+        length: 'getNumberOfProducts'
+    }),
   mounted() {
     this.$store.commit('setItems', this.$page.products)
   },

@@ -1,10 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import * as types from './mutation-types'
-import Products from "~/components/Products.vue"
 
 Vue.use(Vuex)
-Vue.use(Products)
 
 const debug = process.env.NODE_ENV !== 'production'
 
