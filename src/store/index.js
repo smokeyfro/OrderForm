@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import * as types from './mutation-types'
+import createPersistedState from "vuex-persistedstate";
 
 Vue.use(Vuex)
 
@@ -55,7 +56,7 @@ const mutations = {
       },
       
       setItems(state, items) {
-        state.items = items
+        state.all = items
       }
 }
 
@@ -65,5 +66,6 @@ export default new Vuex.Store({
 	strict: debug,
 	getters,
 	actions,
-	mutations
+    mutations,
+    plugins: [createPersistedState()],
 })

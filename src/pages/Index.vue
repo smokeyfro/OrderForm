@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 
 import ProductsByProducer from "~/components/ProductsByProducer.vue"
 import Cart from "~/components/Cart.vue"
@@ -45,10 +45,10 @@ export default {
     Cart
   },
   // computed:{
-  //   // itemsInCart(){
-	// 	// 	let cart = this.$store.getters.cartProducts;
-	// 	// 	return cart.reduce((accum, item) => accum + item.quantity, 0)
-	// 	// }
+  //   itemsInCart(){
+	// 		let cart = this.$store.getters.cartProducts;
+	// 		return cart.reduce((accum, item) => accum + item.quantity, 0)
+	// 	}
   // },
   computed:
     mapGetters({

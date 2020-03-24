@@ -3,7 +3,7 @@
         <h2 class="mb-3 text-lg font-bold">{{ this.producer }}</h2>
         <table class="block w-full">
             <tbody class="block w-full">
-                <tr v-for="(product, i) in products" :key="i" :value="item.node.id" class="block w-full odd:bg-white even:bg-gray-200">
+                <tr v-for="(item, i) in filteredProducts" :key="i" :value="item.node.id" class="block w-full odd:bg-white even:bg-gray-200">
                     <td width="400px">{{ item.node.title }}</td>
                     <td width="100px">R{{ item.node.price }}</td>
                     <td width="100px">{{ item.node.availability }} available</td>
@@ -25,18 +25,18 @@ export default {
         products: 'allProducts',
         length: 'getNumberOfProducts'
     }),
-    // computed: {
-	// 	filteredProducts() {
-	// 		return this.$static.allProduct.edges.filter(edge => {
-	// 			return edge.node.producer_id === this.producer_id;
-	// 		});
-    //     }
-    // },
-    // methods: {
-    //     addToShoppingCart(item) {
-    //         this.$store.commit('push', item)
-    //     }
-    // },
+    computed: {
+		filteredProducts() {
+			return this.$static.allProduct.edges.filter(edge => {
+				return edge.node.producer_id === this.producer_id;
+			});
+        }
+    },
+    methods: {
+        addToShoppingCart(item) {
+            this.$store.commit('push', item)
+        }
+    },
     methods: mapActions([
         'addToCart'
     ])

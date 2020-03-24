@@ -5,7 +5,7 @@
         </div>
         <table class="block w-full">
             <tbody class="block w-full">
-                <tr v-for="(item, i) of products" :key="i" class="block w-full p-3 odd:bg-white even:bg-gray-200">
+                <tr v-for="(item, i) of shoppingCartItems" :key="i" class="block w-full p-3 odd:bg-white even:bg-gray-200">
                     <td class="w-24"><input class="inline w-10 px-4 py-2 mr-1 text-sm text-center border rounded-md" value="1" v-bind="qty" /> of {{ item.node.availability }}</td>
                     <td class="pl-3 pr-5" width="45%">{{ item.node.title }}<br><em>{{ item.node.producer }}</em></td>
                     <td class="text-left" width="20%">R200 Total <span class="block text-sm">({{ item.node.price }} per item)</span>
