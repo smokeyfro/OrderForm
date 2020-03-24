@@ -27,20 +27,22 @@ export default {
             length: 'getNumberOfProducts'
         }),
         filteredProducts() {
-			return this.$static.products.edges.filter(edge => {
+			return this.$static.allProduct.edges.filter(edge => {
 				return edge.node.producer_id === this.producer_id;
 			});
         }
     },
-    methods: mapActions([
-        'addToCart'
-    ])
+    methods: {
+        ...mapActions([
+            'addToCart'
+        ])
+    }
 }
 </script>
 
 <static-query>
 query Products {
-    products: allProduct {
+    allProduct {
         edges {
             node {
                 id

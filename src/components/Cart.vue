@@ -79,10 +79,7 @@ export default {
     mapGetters({
         shoppingCartItems() {
             // we map the state declared in main.js
-            return this.$store.state.items
-        },
-        totalAmount () {
-            return this.$store.getters.total
+            return this.$store.state.all
         }
     }),
 }
