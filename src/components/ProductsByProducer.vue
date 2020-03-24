@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 export default {
     props: {
         'producer_id': String,
@@ -27,7 +27,7 @@ export default {
     }),
     computed: {
 		filteredProducts() {
-			return this.$static.allProduct.edges.filter(edge => {
+			return this.$static.products.edges.filter(edge => {
 				return edge.node.producer_id === this.producer_id;
 			});
         }

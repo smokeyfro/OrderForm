@@ -62,6 +62,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
     data() {
         return {
@@ -73,7 +74,8 @@ export default {
             this.$store.commit('remove', item)
         }
     },
-    computed: {
+    computed:
+    mapGetters({
         shoppingCartItems() {
             // we map the state declared in main.js
             return this.$store.state.items
@@ -81,7 +83,7 @@ export default {
         totalAmount () {
             return this.$store.getters.total
         }
-    }
+    }),
 }
 </script>
 
