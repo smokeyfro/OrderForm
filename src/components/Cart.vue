@@ -76,12 +76,10 @@ export default {
 		},
     },
     computed:
-    mapGetters({
         shoppingCartItems() {
-            // we map the state declared in main.js
             return this.$store.state.all
         }
-    }),
+    }
 }
 </script>
 

@@ -22,10 +22,10 @@ export default {
         'producer': String
     },
     computed: {
-        ...mapGetters({
-            products: 'allProducts',
-            length: 'getNumberOfProducts'
-        }),
+        // ...mapGetters({
+        //     products: 'allProducts',
+        //     length: 'getNumberOfProducts'
+        // }),
         filteredProducts() {
 			return this.$static.allProduct.edges.filter(edge => {
 				return edge.node.producer_id === this.producer_id;
