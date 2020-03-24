@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+// import { mapGetters, mapActions } from 'vuex'
 
 import ProductsByProducer from "~/components/ProductsByProducer.vue"
 import Cart from "~/components/Cart.vue"
