@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@tailwindcss/custom-forms": "^0.2.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "gridsome": "^0.7.0",
     "gridsome-plugin-tailwindcss": "^2.2.43",
     "gridsome-source-google-sheets": "^0.4.1",
